@@ -25,6 +25,8 @@ source stays closed. Live demos and write-ups at **[rmprice.co](https://rmprice.
 Plus two private systems: a code and data-lineage engine, and a research
 collaboration with another engineer.
 
+Roughly 290,000 lines and 1,450 commits across the set.
+
 ---
 
 ### How I build
@@ -33,10 +35,11 @@ collaboration with another engineer.
 answer distinct from *"nothing found"*. Conflating the two is how a tool quietly
 poisons every decision downstream of it.
 
-**Measured, not asserted.** Detection and scoring thresholds are derived from
-physical constraints and verified against labelled sets — and when a change
-improves one metric at the cost of another, the tradeoff gets stated rather than
-buried.
+**Measured, not asserted.** BallisticLens's scoring gate is measured at 0.949
+precision / 0.758 recall against a labelled set, replacing a prior approach at
+0.939 / 0.313 — better on both, which is why it wasn't a tradeoff. Thresholds
+are derived from physical constraints rather than fitted to the data that
+happens to be in front of them.
 
 **Tests that bite.** Model behaviour is verified against recorded real API
 responses rather than stubs, so the output contract is checked against what a
